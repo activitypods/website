@@ -40,6 +40,13 @@ import { getHomePermalink } from '~/utils/permalinks';
             >Roadmap
           </a>
         </li>
+        <li>
+          <a
+            class="font-medium hover:text-gray-900 dark:hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out"
+            href="/blog"
+            >Blog
+          </a>
+        </li>
         <li class="dropdown">
           <>
             <button
@@ -90,18 +97,19 @@ import { getHomePermalink } from '~/utils/permalinks';
               <li>
                 <a
                   class="first:rounded-t last:rounded-b md:hover:bg-gray-100 dark:hover:bg-gray-700 py-2 px-5 block whitespace-no-wrap"
-                  href="/blog"
+                  href="https://fosstodon.org/@activitypods"
+                  target="_blank"
                 >
-                  Blog
+                  Mastodon
                 </a>
               </li>
               <li>
                 <a
                   class="first:rounded-t last:rounded-b md:hover:bg-gray-100 dark:hover:bg-gray-700 py-2 px-5 block whitespace-no-wrap"
-                  href="https://fosstodon.org/@activitypods"
+                  href="https://matrix.to/#/#activitypods:matrix.org"
                   target="_blank"
                 >
-                  Mastodon
+                  Matrix chat
                 </a>
               </li>
               <li>
@@ -124,13 +132,6 @@ import { getHomePermalink } from '~/utils/permalinks';
               </li>
             </ul>
           </>
-        </li>
-        <li class="md:hidden">
-          <a
-            class="font-bold hover:text-gray-900 dark:hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out"
-            href="https://github.com/assemblee-virtuelle/activitypods"
-            >Github
-          </a>
         </li>
       </ul>
       <div class="md:self-center flex items-center mb-4 md:mb-0 ml-2">

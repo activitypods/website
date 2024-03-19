@@ -38,17 +38,17 @@ export default [
     'apods:logo': mutualAid,
     'apods:sourceCode': 'https://github.com/assemblee-virtuelle/mutual-aid.app',
   },
-  {
-    '@type': 'apods:TrustedApps',
-    'apods:name': 'Your application ?',
-    'apods:description': 'Creating social apps is easy with the ActivitPods framework. Give it a try !',
-    'apods:domainName': 'docs.activitypods.org',
-    'apods:handledTypes': [
-      'http://virtual-assembly.org/ontologies/pair-mp#Request',
-      'http://virtual-assembly.org/ontologies/pair-mp#Offer',
-    ],
-    'apods:locales': 'en',
-    'apods:logo': yourApp,
-    'apods:sourceCode': 'https://github.com/assemblee-virtuelle/activitypods',
-  },
+  // {
+  //   '@type': 'apods:TrustedApps',
+  //   'apods:name': 'Your application ?',
+  //   'apods:description': 'Creating social apps is easy with the ActivitPods framework. Give it a try !',
+  //   'apods:domainName': 'docs.activitypods.org',
+  //   'apods:handledTypes': [
+  //     'http://virtual-assembly.org/ontologies/pair-mp#Request',
+  //     'http://virtual-assembly.org/ontologies/pair-mp#Offer',
+  //   ],
+  //   'apods:locales': 'en',
+  //   'apods:logo': yourApp,
+  //   'apods:sourceCode': 'https://github.com/assemblee-virtuelle/activitypods',
+  // },
 ];

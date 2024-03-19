@@ -12,26 +12,26 @@ import trustedApps from "~/config/trusted-apps";
       >
         Applications in production
       </h2>
-      <!-- <section class="bg-white dark:bg-purple-900">
+      <section class="bg-white dark:bg-purple-900">
         <div class="max-w-6xl mx-auto p-3 text-md font-medium">
           <Icon
             name="tabler:alert-triangle"
             class="w-5 h-5 inline-block align-text-bottom"
           />
-          Please note that data on the below apps are private-by-default. It means
+          Some on the below apps are private-by-default. It means
           that you will not see anything, unless one of your contacts shared something
           with you. This is a voluntary choice made for these apps, but the ActivityPods
           architecture can also handle public data.
         </div>
-      </section> -->
+      </section>
     </div>
-    <div class="grid gap-6 row-gap-5 md:grid-cols-2">
+    <div class="grid gap-6 row-gap-5 md:grid-cols-2 lg:grid-cols-3">
       {
         trustedApps
           .filter((app) => app["apods:locales"] === "en")
           .map((app) => (
             <article class="mx-4 sm:mx-0">
-              <div class="relative h-0 pb-[56.25%] lg:h-64 overflow-hidden bg-gray-400 dark:bg-slate-700 rounded shadow-lg mb-4">
+              <div class="relative h-0 pb-[56.25%]  overflow-hidden bg-gray-400 dark:bg-slate-700 rounded shadow-lg mb-4">
                 <a href={"https://" + app["apods:domainName"]} target="_blank">
                   <Picture
                     src={app["apods:logo"]}
