@@ -28,9 +28,23 @@ import { getHomePermalink } from '~/utils/permalinks';
         <li>
           <a
             class="font-medium hover:text-gray-900 dark:hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out"
-            href="https://mypod.store"
+            href="https://docs.activitypods.org"
             target="_blank"
-            >Create your Pod
+            >v2 Documentation
+          </a>
+        </li>
+        <li>
+          <a
+            class="font-medium hover:text-gray-900 dark:hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out"
+            href="/roadmap"
+            >Roadmap
+          </a>
+        </li>
+        <li>
+          <a
+            class="font-medium hover:text-gray-900 dark:hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out"
+            href="/blog"
+            >Blog
           </a>
         </li>
         <li class="dropdown">
@@ -70,32 +84,60 @@ import { getHomePermalink } from '~/utils/permalinks';
             </ul>
           </>
         </li>
-        <li>
-          <a
-            class="font-medium hover:text-gray-900 dark:hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out"
-            href="/roadmap"
-            >Roadmap
-          </a>
-        </li>
-        <li>
-          <a
-            class="font-medium hover:text-gray-900 dark:hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out"
-            href="/blog"
-            >Blog
-          </a>
-        </li>
-        <li class="md:hidden">
-          <a
-            class="font-bold hover:text-gray-900 dark:hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out"
-            href="https://github.com/assemblee-virtuelle/activitypods"
-            >Github
-          </a>
+        <li class="dropdown">
+          <>
+            <button
+              class="font-medium hover:text-gray-900 dark:hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out"
+            >
+              Community <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.5 hidden md:inline" />
+            </button>
+            <ul
+              class="dropdown-menu rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white md:min-w-[200px] dark:md:bg-slate-800 drop-shadow-xl"
+            >
+              <li>
+                <a
+                  class="first:rounded-t last:rounded-b md:hover:bg-gray-100 dark:hover:bg-gray-700 py-2 px-5 block whitespace-no-wrap"
+                  href="https://fosstodon.org/@activitypods"
+                  target="_blank"
+                >
+                  Mastodon
+                </a>
+              </li>
+              <li>
+                <a
+                  class="first:rounded-t last:rounded-b md:hover:bg-gray-100 dark:hover:bg-gray-700 py-2 px-5 block whitespace-no-wrap"
+                  href="https://matrix.to/#/#activitypods:matrix.org"
+                  target="_blank"
+                >
+                  Matrix chat
+                </a>
+              </li>
+              <li>
+                <a
+                  class="first:rounded-t last:rounded-b md:hover:bg-gray-100 dark:hover:bg-gray-700 py-2 px-5 block whitespace-no-wrap"
+                  href="https://github.com/assemblee-virtuelle/activitypods/wiki/Meeting-Notes"
+                  target="_blank"
+                >
+                  Weekly meetings
+                </a>
+              </li>
+              <li>
+                <a
+                  class="first:rounded-t last:rounded-b md:hover:bg-gray-100 dark:hover:bg-gray-700 py-2 px-5 block whitespace-no-wrap"
+                  href="https://github.com/assemblee-virtuelle/activitypods"
+                  target="_blank"
+                >
+                  GitHub
+                </a>
+              </li>
+            </ul>
+          </>
         </li>
       </ul>
       <div class="md:self-center flex items-center mb-4 md:mb-0 ml-2">
         <div class="hidden items-center md:flex">
           <ToggleTheme iconClass="w-5 h-5" />
-          <a
+          <!-- <a
             href="https://fosstodon.org/@activitypods"
             rel="me"
             class="inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
@@ -103,7 +145,7 @@ import { getHomePermalink } from '~/utils/permalinks';
             target="_blank"
           >
             <Icon name="tabler:brand-mastodon" class="w-5 h-5" />
-          </a>
+          </a> -->
           <a
             href="https://github.com/assemblee-virtuelle/activitypods"
             class="inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
