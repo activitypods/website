@@ -13,6 +13,7 @@
     "lint:eslint": "eslint . --ext .js,.ts,.astro"
   },
   "dependencies": {
+    "@astrojs/node": "^8.3.2",
     "@astrojs/react": "^3.0.9",
     "@astrojs/rss": "^4.0.1",
     "@astrojs/sitemap": "^3.0.3",
@@ -24,6 +25,7 @@
     "@types/react-dom": "^18.2.18",
     "astro": "^4.0.6",
     "astro-icon": "1.0.0-next.2",
+    "jsonld": "^8.3.2",
     "limax": "4.1.0",
     "lodash.merge": "^4.6.2",
     "react": "^18.2.0",

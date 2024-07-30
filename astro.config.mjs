@@ -15,6 +15,7 @@ import rehypeExternalLinks from 'rehype-external-links';
 import { readingTimeRemarkPlugin, responsiveTablesRehypePlugin } from './src/utils/frontmatter.mjs';
 import { ANALYTICS, SITE } from './src/utils/config.ts';
 import react from '@astrojs/react';
+import node from '@astrojs/node';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const whenExternalScripts = (items = []) =>
   ANALYTICS.vendors.googleAnalytics.id && ANALYTICS.vendors.googleAnalytics.partytown
@@ -28,7 +29,10 @@ export default defineConfig({
   site: SITE.site,
   base: SITE.base,
   trailingSlash: SITE.trailingSlash ? 'always' : 'never',
-  output: 'static',
+  output: 'hybrid',
+  adapter: node({
+    mode: 'standalone',
+  }),
   integrations: [
     tailwind({
       applyBaseStyles: false,
