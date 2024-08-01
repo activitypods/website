@@ -10,8 +10,21 @@ export const GET: APIRoute = async ({ request, params }) => {
     {
       status: 200,
       headers: {
-        "Content-Type": "application/ld+json"
+        "Content-Type": "application/ld+json",
+        "Access-Control-Allow-Origin": "*"
       }
     }
   );
 }
+
+export const HEAD: APIRoute = async () => {
+  return new Response(undefined,
+    {
+      status: 200,
+      headers: {
+        "Content-Type": "application/ld+json",
+        "Access-Control-Allow-Origin": "*"
+      }
+    }
+  );
+};

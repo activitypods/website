@@ -1054,3 +1054,15 @@ export const GET: APIRoute = async () => {
     }
   );
 };
+
+export const HEAD: APIRoute = async () => {
+  return new Response(undefined,
+    {
+      status: 200,
+      headers: {
+        "Content-Type": "application/ld+json",
+        "Access-Control-Allow-Origin": "*"
+      }
+    }
+  );
+};
