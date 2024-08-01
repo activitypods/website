@@ -1048,7 +1048,8 @@ export const GET: APIRoute = async () => {
     {
       status: 200,
       headers: {
-        "Content-Type": "application/ld+json"
+        "Content-Type": "application/ld+json",
+        "Access-Control-Allow-Origin": "*"
       }
     }
   );
