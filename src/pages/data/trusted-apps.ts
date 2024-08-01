@@ -1,7 +1,9 @@
-import type { APIRoute } from "astro";
 import jsonld from 'jsonld';
 import { ldpContainer } from "../../utils/ldp";
 import localContext from "../../config/localContext";
+
+import type { APIRoute } from "astro";
+import type { Resource } from "../../utils/ldp";
 
 export const prerender = false
 
@@ -10,7 +12,7 @@ const trustedAppsUris = [
 ];
 
 export const GET: APIRoute = async ({ request }) => {
-  let trustedAppsData = [] as Object[];
+  let trustedAppsData = [] as Resource[];
 
   for (const appUri of trustedAppsUris) {
     const response = await fetch(appUri, { headers: { 'Accept': 'application/ld+json' }} );
