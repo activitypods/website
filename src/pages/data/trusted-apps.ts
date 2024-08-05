@@ -1,4 +1,5 @@
 import jsonld from 'jsonld';
+import eleventyFetch from "@11ty/eleventy-fetch";
 import { ldpContainer } from "../../utils/ldp";
 import localContext from "../../config/localContext";
 
@@ -12,15 +13,23 @@ const trustedAppsUris = [
 ];
 
 export const GET: APIRoute = async ({ request }) => {
-  let trustedAppsData = [] as Resource[];
+  const trustedAppsData = [] as Resource[];
 
   for (const appUri of trustedAppsUris) {
-    const response = await fetch(appUri, { headers: { 'Accept': 'application/ld+json' }} );
-    if (response.ok ) {
-      const json = await response.json();
-      let compactJson = await jsonld.compact(json, localContext);
+    try {
+    // Keep response in cache for 3 hours
+      const json = await eleventyFetch(appUri, { 
+        duration: '3h', 
+        type: 'json', 
+        fetchOptions: {
+          headers: { 'Accept': 'application/ld+json' }
+        }
+      });
+      const compactJson = await jsonld.compact(json, localContext);
       delete compactJson['@context'];
       trustedAppsData.push(compactJson);
+    } catch(e) {
+      // Ignore non-available applications
     }
   }
 
