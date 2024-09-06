@@ -1,15 +1,17 @@
 import jsonld from 'jsonld';
-import eleventyFetch from "@11ty/eleventy-fetch";
-import { ldpContainer } from "../../utils/ldp";
-import localContext from "../../config/localContext";
+import eleventyFetch from '@11ty/eleventy-fetch';
+import { ldpContainer } from '../../utils/ldp';
+import localContext from '../../config/localContext';
 
-import type { APIRoute } from "astro";
-import type { Resource } from "../../utils/ldp";
+import type { APIRoute } from 'astro';
+import type { Resource } from '../../utils/ldp';
 
-export const prerender = false
+export const prerender = false;
 
 const trustedAppsUris = [
-  'https://dev.welcometomyplace.org/api/app'
+  'https://dev.welcometomyplace.org/api/app',
+  'https://dev.mutual-aid.app/api/app',
+  'https://dev.mastopod.com/api/app',
 ];
 
 export const GET: APIRoute = async ({ request }) => {
@@ -17,42 +19,37 @@ export const GET: APIRoute = async ({ request }) => {
 
   for (const appUri of trustedAppsUris) {
     try {
-    // Keep response in cache for 3 hours
-      const json = await eleventyFetch(appUri, { 
-        duration: '3h', 
-        type: 'json', 
+      // Keep response in cache for 3 hours
+      const json = await eleventyFetch(appUri, {
+        duration: '3h',
+        type: 'json',
         fetchOptions: {
-          headers: { 'Accept': 'application/ld+json' }
-        }
+          headers: { Accept: 'application/ld+json' },
+        },
       });
       const compactJson = await jsonld.compact(json, localContext);
       delete compactJson['@context'];
       trustedAppsData.push(compactJson);
-    } catch(e) {
+    } catch (e) {
       // Ignore non-available applications
     }
   }
 
-  return new Response(
-    JSON.stringify(ldpContainer(request.url, trustedAppsData)), 
-    {
-      status: 200,
-      headers: {
-        "Content-Type": "application/ld+json",
-        "Access-Control-Allow-Origin": "*"
-      }
-    }
-  );
+  return new Response(JSON.stringify(ldpContainer(request.url, trustedAppsData)), {
+    status: 200,
+    headers: {
+      'Content-Type': 'application/ld+json',
+      'Access-Control-Allow-Origin': '*',
+    },
+  });
 };
 
 export const HEAD: APIRoute = async () => {
-  return new Response(undefined,
-    {
-      status: 200,
-      headers: {
-        "Content-Type": "application/ld+json",
-        "Access-Control-Allow-Origin": "*"
-      }
-    }
-  );
+  return new Response(undefined, {
+    status: 200,
+    headers: {
+      'Content-Type': 'application/ld+json',
+      'Access-Control-Allow-Origin': '*',
+    },
+  });
 };
