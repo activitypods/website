@@ -9,9 +9,9 @@ import type { Resource } from '../../utils/ldp';
 export const prerender = false;
 
 const trustedAppsUris = [
-  'https://dev.welcometomyplace.org/api/app',
-  'https://dev.mutual-aid.app/api/app',
-  'https://dev.mastopod.com/api/app',
+  'https://welcometomyplace.org/api/app',
+  'https://mutual-aid.app/api/app',
+  'https://mastopod.com/api/app'
 ];
 
 export const GET: APIRoute = async ({ request }) => {
@@ -24,8 +24,8 @@ export const GET: APIRoute = async ({ request }) => {
         duration: '3h',
         type: 'json',
         fetchOptions: {
-          headers: { Accept: 'application/ld+json' },
-        },
+          headers: { Accept: 'application/ld+json' }
+        }
       });
       const compactJson = await jsonld.compact(json, localContext);
       delete compactJson['@context'];
@@ -39,8 +39,8 @@ export const GET: APIRoute = async ({ request }) => {
     status: 200,
     headers: {
       'Content-Type': 'application/ld+json',
-      'Access-Control-Allow-Origin': '*',
-    },
+      'Access-Control-Allow-Origin': '*'
+    }
   });
 };
 
@@ -49,7 +49,7 @@ export const HEAD: APIRoute = async () => {
     status: 200,
     headers: {
       'Content-Type': 'application/ld+json',
-      'Access-Control-Allow-Origin': '*',
-    },
+      'Access-Control-Allow-Origin': '*'
+    }
   });
 };
