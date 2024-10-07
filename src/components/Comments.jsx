@@ -18,7 +18,7 @@ const Comments = () => {
         {mounted ? (
           <Giscus
             id={id}
-            repo="assemblee-virtuelle/activitypods"
+            repo="activitypods/activitypods"
             repoId="R_kgDOGejTbQ"
             category="Blog articles"
             categoryId="DIC_kwDOGejTbc4CcKru"
