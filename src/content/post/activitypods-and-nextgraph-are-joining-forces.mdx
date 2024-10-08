@@ -1,0 +1,42 @@
+---
+publishDate: 2024-10-08T13:00:00Z
+title: 'ActivityPods and NextGraph are joining forces'
+excerpt: 'Both projects are based on Semantic Web/Linked Data/RDF technologies, and both foster the decoupling of data storage from data usage. Data storage should stay in total control of the end-user, and third party apps should request permission to access or modify such data.'
+image: '~/assets/images/blog/apods-nextgraph-logos.png'
+---
+
+We are excited to announce a partnership and collaboration between ActivityPods and [NextGraph](https://nextgraph.org/activitypods-and-nextgraph-are-joining-forces/).
+
+Both projects are based on Semantic Web/Linked Data/RDF technologies, and both foster the decoupling of data storage from data usage. Data storage should stay in total control of the end-user, and third party apps should request permission to access or modify such data.
+
+Both projects embrace the social dimension of data-centric applications and offer a framework for app developers who wish to benefit from those features, that enable decentralization, interoperability and privacy by default.
+
+Each project originally took a different approach and followed a distinct path, that can now converge and complement each other beautifully.
+
+ActivityPods leverages the power of the well-known and widely used ActivityPub protocol for synchronizing data across federated servers. It unifies user and data identifiers by being compliant with some of the Solid protocols and specifications, and by offering an interface for the POD (Personal Online Datastore) where the user's data is stored. The framework in version 2.0 has [just been released](https://activitypods.org/activitypods-2-0-is-out) a few days ago, and this is a major achievement. For version 3.0, we are working on a new roadmap for even more compliance with Solid specifications.
+
+NextGraph is based on local-first principles and forgoes HTTP because of its requirements for peer-to-peer decentralization and end-to-end encryption. A new protocol was designed in order to support synchronization of CRDT (Conflict-Free Replicated Data Types) data, and especially a novel CRDT for RDF. The framework of NextGraph will be released within 2 months from this announcement, while the first apps (mobile, desktop and web) are already available in alpha release since early September.
+
+With our upcoming collaboration, both projects will benefit from the advantages and features of each other, with the ultimate goal of perfect compatibility of applications developed with either of the frameworks.
+
+This convergence is possible thanks to the common reliance on a quad-store for the storage of RDF data. Unlike other Solid implementations, ActivityPods uses SPARQL queries in order to access the underlying RDF data. NextGraph is a decentralized and local-first quad-store, so the first step will be for ActivityPods to use NextGraph as its quad-store. Also, the choice of basing the permission mechanism of both our frameworks on the SAI specification (Solid Application Interoperability) will further facilitate the integration of our APIs.
+
+Furthermore, NextGraph offers a novel permission mechanism based on cryptographic capabilities and uses the DID scheme for Decentralized Identifiers, a standard of the W3C that is gaining traction in both Social Networks and application frameworks. ActivityPods will be able to benefit from DIDs and offer perfect portability to its users so they can move their data to another provider. NextGraph will also bring the added functionalities of local-first, offline-first, and end-to-end encryption.
+
+NextGraph will benefit from gaining compatibility with two Open Standards: Solid and ActivityPub protocols, that are used by an ever growing base of app makers and end-users, hence simplifying the onboarding of new users who are already used to the Fediverse, and guaranteeing a smooth transition towards cutting edge features.
+
+The long-term goal is eventually to merge both our frameworks so they will appear as one to the developer, bringing full compatibility between the two APIs and offering the freedom to end-users if they prefer to use one protocol or another, within the same app that is coded only once.
+
+NextGraph and ActivityPods are engaged with the communities of FOSS developers and standardization Working Groups on all the technologies of concern, and are striving to contribute to an Open and Free Internet that will be easy of use by everybody, and where users can regain total control over their data, privacy, and software, while maintaining and improving a smooth, safe, and sound user experience.
+
+We are calling on all FOSS projects and developers to join our efforts and to participate in the standardization processes in order to unite and gather forces for a better internet.
+
+Looking forward sharing with all of you the progress we make on this collaboration.
+
+Do not hesitate in engaging with us in our [matrix space](https://matrix.to/#/#activitypods:matrix.org) and [forum](http://forum.nextgraph.org/) and ask all the questions that may arise!
+
+Sebastien, Laurin, Niko and Julien, for
+
+[ActivityPods](https://activitypods.org)
+
+[NextGraph](https://nextgraph.org)
