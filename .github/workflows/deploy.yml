@@ -19,6 +19,6 @@ jobs:
         port: 22
         script: |
           cd mypod.store
-          docker system prune
+          docker system prune --force
           docker compose build activitypods-website
           docker compose up -d activitypods-website
