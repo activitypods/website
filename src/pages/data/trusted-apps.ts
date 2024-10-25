@@ -11,7 +11,9 @@ export const prerender = false;
 const trustedAppsUris = [
   'https://welcometomyplace.org/api/app',
   'https://mutual-aid.app/api/app',
-  'https://mastopod.com/api/app'
+  'https://mastopod.com/api/app',
+  'https://bienvenuechezmoi.org/api/app',
+  'https://lentraide.app/api/app'
 ];
 
 export const GET: APIRoute = async ({ request }) => {
