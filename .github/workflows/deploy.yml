@@ -18,7 +18,7 @@ jobs:
         key: ${{ secrets.PRIVATE_KEY }}
         port: 22
         script: |
-          cd mypod.store
+          cd apps
           docker system prune --force
           docker compose build activitypods-website
           docker compose up -d activitypods-website
