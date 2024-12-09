@@ -1,7 +1,7 @@
 ---
 publishDate: 2024-10-07T00:00:00Z
 title: 'ActivityPods 2.0 is out!'
-excerpt: "We are thrilled to announce the official release of ActivityPods 2.0, a framework and platform that allows users to create a single account for multiple decentralised social applications while also providing developers with the tools to build and integrate these applications."
+excerpt: 'We are thrilled to announce the official release of ActivityPods 2.0, a framework and platform that allows users to create a single account for multiple decentralised social applications while also providing developers with the tools to build and integrate these applications.'
 image: '~/assets/images/blog/volcano.jpg'
 tags:
   - release
@@ -28,19 +28,19 @@ With ActivityPods, each Pod has its own SPARQL endpoint for querying RDF data, a
 
 As announced in our [previous blog post](https://activitypods.org/the-road-to-activitypods-2-0), ActivityPods 2.0 introduces key updates in how apps interact with user data.
 
-Now apps need to request and be given access grants for their specific needs. For example, an app might require access to the *inbox* and *outbox* to create and share *events* with *friends*. Users must approve the app's access needs before the app gains the necessary permissions.
+Now apps need to request and be given access grants for their specific needs. For example, an app might require access to the _inbox_ and _outbox_ to create and share _events_ with _friends_. Users must approve the app's access needs before the app gains the necessary permissions.
 
 In ActivityPods 2.0, apps have a frontend and a backend. The frontend receive a Solid-OIDC token that only gives access to the requested data. The backend can also interact with the user's Pod in an asynchronous manner, using HTTP signature.
 
 <ImageCaption src={authScreen} label="Authorization screen for Welcome To my place" />
 
-We’ve implemented part of the [Solid Application Interoperability specification](https://solid.github.io/data-interoperability-panel/primer/application.html) (that is still work-in-progress) to enable this process. 
+We’ve implemented part of the [Solid Application Interoperability specification](https://solid.github.io/data-interoperability-panel/primer/application.html) (that is still work-in-progress) to enable this process.
 
 ## App framework
 
-ActivityPods is a two-sided project: it is a Pod provider, that can be [installed by anyone with a simple Docker configuration](https://docs.activitypods.org/tutorials/deploy-your-own-pod-provider/), and it is a full-featured framework to develop decentralized social apps. 
+ActivityPods is a two-sided project: it is a Pod provider, that can be [installed by anyone with a simple Docker configuration](https://docs.activitypods.org/tutorials/deploy-your-own-pod-provider/), and it is a full-featured framework to develop decentralized social apps.
 
-In addition to the [frontend components that are available as part of the SemApps project](https://semapps.org/docs/frontend), we now also offer backend services to help apps interact with the Pod asynchronously, such as reading and writing data, setting permissions, listening to the inbox or outbox, etc. 
+In addition to the [frontend components that are available as part of the SemApps project](https://semapps.org/docs/frontend), we now also offer backend services to help apps interact with the Pod asynchronously, such as reading and writing data, setting permissions, listening to the inbox or outbox, etc.
 
 Check out [our new documentation website](https://docs.activitypods.org) for more information, and in particular our [tutorial](https://docs.activitypods.org/tutorials/create-your-first-social-app/) if you want to create your first social app in less than 30 minutes!
 
@@ -59,6 +59,7 @@ Check out [this PR](https://github.com/activitypods/activitypods/pull/106) for a
 ## What is next?
 
 There’s a lot on the horizon for ActivityPods, including:
+
 - Collective Online Datastores (CODs)
 - Advanced permission management
 - Encryption of Pod data
@@ -72,20 +73,20 @@ In ActivityPods 3.0, we plan to use [NextGraph](https://nextgraph.org/), a novel
 There is a lot to be done and we are looking for people to join us!
 
 - **Spread the word**<br />
-Help us talk about the future of decentralised social networks and data ownership! Tag us on
-the Fediverse at [@activitypods@fosstodon.org](https://fosstodon.org/@activitypods).
+  Help us talk about the future of decentralised social networks and data ownership! Tag us on
+  the Fediverse at [@activitypods@fosstodon.org](https://fosstodon.org/@activitypods).
 
 - **Get in touch**<br />
-Join the conversation on [our Matrix space](https://matrix.to/#/#activitypods:matrix.org). There, you can present yourself or ask questions.
-We hold [open weekly meetings every Thursday at 15:00 CET](https://github.com/assemblee-virtuelle/activitypods/discussions/167), and we welcome everyone -- from users to developers to experts.
+  Join the conversation on [our Matrix space](https://matrix.to/#/#activitypods:matrix.org). There, you can present yourself or ask questions.
+  We hold [open weekly meetings every other Thursday at 15:00 CET](https://github.com/assemblee-virtuelle/activitypods/discussions/167), and we welcome everyone -- from users to developers to experts.
 
 - **Submit issues**<br />
-If you find a bug or notice something that is not working, we are happy to hear from you! There are many things that can be improved.
-You can create issues on [GitHub](https://github.com/activitypods/activitypods/issues).
+  If you find a bug or notice something that is not working, we are happy to hear from you! There are many things that can be improved.
+  You can create issues on [GitHub](https://github.com/activitypods/activitypods/issues).
 
 - **Contribute to the documentation or development**<br />
-If something in our documentation seems unclear, consider raising an issue or contributing a PR. Your contributions to both the documentation and the software are incredibly valuable.
-If you like, check out [good first issues on GitHub](https://github.com/activitypods/activitypods/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22).
+  If something in our documentation seems unclear, consider raising an issue or contributing a PR. Your contributions to both the documentation and the software are incredibly valuable.
+  If you like, check out [good first issues on GitHub](https://github.com/activitypods/activitypods/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22).
 
 ## Conclusion
 
