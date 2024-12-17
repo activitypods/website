@@ -1,0 +1,546 @@
+@prefix apods: <https://activitypods.org/ns/core#> .
+@prefix as: <https://www.w3.org/ns/activitystreams#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix linkml: <https://w3id.org/linkml/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+apods:ClassDescription a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "ClassDescription" ;
+    dcterms:title "Class Description" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty apods:prefLabel ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty apods:describedBy ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty apods:describedClass ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty apods:prefLabel ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uri ;
+            owl:onProperty apods:openEndpoint ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty apods:openEndpoint ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty apods:describedClass ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty apods:icon ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty apods:prefLabel ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty apods:describedBy ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uri ;
+            owl:onProperty apods:icon ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty apods:openEndpoint ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty apods:labelPredicate ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty apods:labelPredicate ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty apods:labelPredicate ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty apods:describedClass ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty apods:describedBy ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty apods:icon ] ;
+    skos:definition "Description of an RDFS class used in Type Registration" ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:Collection a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Collection" ;
+    skos:exactMatch as:Collection ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:Install a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Install" ;
+    dcterms:title "Install Activity" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty apods:acceptedSpecialRights ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom apods:AccessNeed ;
+            owl:onProperty apods:acceptedAccessNeeds ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty apods:acceptedAccessNeeds ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom apods:AccessNeed ;
+            owl:onProperty apods:acceptedSpecialRights ],
+        apods:Activity ;
+    skos:definition "Activity to Install an app using Solid Application Interoperability" ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:Notification a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Notification" ;
+    dcterms:title "User Notification" ;
+    rdfs:subClassOf apods:Activity ;
+    skos:definition "A notification activity from an app to notify the user." ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:OrderedCollection a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "OrderedCollection" ;
+    skos:exactMatch as:OrderedCollection ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:PodProvider a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "PodProvider" ;
+    dcterms:title "Pod Provider Description" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uri ;
+            owl:onProperty apods:baseUrl ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty apods:area ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty apods:area ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty apods:locales ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty apods:baseUrl ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty apods:providedBy ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty apods:baseUrl ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty apods:area ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty apods:locales ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty apods:providedBy ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty apods:providedBy ] ;
+    skos:definition "General information about a pod provider" ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:announcers a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "announcers" ;
+    dcterms:title "Announcers of an Activity" ;
+    rdfs:range linkml:Uri ;
+    skos:definition "The set of actors authorized to announce an activity" ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:announces a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "announces" ;
+    dcterms:title "Announces of an Activity" ;
+    rdfs:range linkml:Uri ;
+    skos:definition "The set of actors authorized to view an activity" ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:application a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "application" ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:attendees a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "attendees" ;
+    dcterms:title "Attendees of an Event" ;
+    rdfs:range linkml:Uri ;
+    skos:definition "The set of a attendees of an event" ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:availableApps a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "availableApps" ;
+    dcterms:title "Available Apps for Type" ;
+    rdfs:range linkml:Uri ;
+    skos:definition "The available apps that are capable of handling a given class" ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:capabilities a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "capabilities" ;
+    dcterms:title "Capabilities ldp resource container" ;
+    rdfs:range linkml:Uri ;
+    rdfs:seeAlso <https://docs.activitypods.org/architecture/authorization/#capability-urls> ;
+    skos:definition "URI to an actor's container of capabilities. This should be referenced from an actor's WebID." ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:closingTime a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "closingTime" ;
+    dcterms:title "Closing Time of Event" ;
+    rdfs:range linkml:Datetime ;
+    skos:definition "The datetime at which no new attendees can join an activity" ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:contactRequests a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "contactRequests" ;
+    dcterms:title "Contact Requests Collection" ;
+    rdfs:range linkml:Uri ;
+    skos:definition "Collection of contact requests to an ActivityPub actor" ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:contacts a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "contacts" ;
+    dcterms:title "Contacts" ;
+    rdfs:range linkml:Uri ;
+    skos:definition "Collection of contacts of an ActivityPub actor" ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:defaultApp a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "defaultApp" ;
+    dcterms:title "Default App for Class" ;
+    rdfs:range linkml:Uri ;
+    skos:definition "The default app to open a resource of a given RDFS class with." ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:dereferenceItems a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "dereferenceItems" ;
+    rdfs:range linkml:Boolean ;
+    rdfs:seeAlso <https://docs.activitypods.org/architecture/resources-management/#create-custom-collection> ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:hasClassDescription a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "hasClassDescription" ;
+    dcterms:title "Class Description" ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:hasFormat a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "hasFormat" ;
+    dcterms:title "Type of Event" ;
+    rdfs:range apods:EventFormat ;
+    skos:definition "The EventFormat type of an event (e.g. a movie night)." ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:hasSpecialRights a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "hasSpecialRights" ;
+    rdfs:range linkml:Uri ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:hasStatus a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "hasStatus" ;
+    dcterms:title "Status of Event" ;
+    rdfs:range apods:EventStatus ;
+    skos:definition "The lifecycle status of the event (e.g. open or finished)." ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:ignoredContacts a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "ignoredContacts" ;
+    dcterms:title "Ignored Contacts" ;
+    rdfs:range linkml:Uri ;
+    skos:definition "Collection of contacts ignored by an ActivityPub actor" ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:maxAttendees a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "maxAttendees" ;
+    dcterms:title "Maximum Number of Attendees" ;
+    rdfs:range linkml:Integer ;
+    skos:definition "The maximum number of actors that are allowed to participate in an event." ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:preferredForClass a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "preferredForClass" ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:preferredForTypes a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "preferredForTypes" ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:registeredClass a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "registeredClass" ;
+    dcterms:title "Registered Class" ;
+    rdfs:range linkml:Uriorcurie ;
+    skos:definition "Class registered by an app to whose resources it has certain access rights." ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:registeredContainer a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "registeredContainer" ;
+    dcterms:title "Type Registration Container" ;
+    rdfs:range linkml:Uri ;
+    skos:definition "The container that contains a registered type's resources from a type registration." ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:rejectedContacts a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "rejectedContacts" ;
+    dcterms:title "Rejected Contact Requests" ;
+    rdfs:range linkml:Uri ;
+    skos:definition "Collection of contact requests rejected by an ActivityPub actor" ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:sortField a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "sortField" ;
+    dcterms:title "Sort Field for Ordering Collection" ;
+    rdfs:seeAlso <https://docs.activitypods.org/architecture/resources-management/#create-custom-collection> ;
+    skos:definition "The RDF property to order the collection by" ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:sortOrder a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "sortOrder" ;
+    dcterms:title "Collection Sort Order" ;
+    rdfs:range apods:SortOrder ;
+    rdfs:seeAlso <https://docs.activitypods.org/architecture/resources-management/#create-custom-collection> ;
+    skos:definition "The sort order of a collection" ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:EventFormat a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "EventFormat" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty apods:label ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty apods:label ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty apods:label ] ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:Activity a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Activity" ;
+    skos:exactMatch as:Activity ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:AscOrder a owl:Class,
+        apods:SortOrder ;
+    rdfs:label "AscOrder" ;
+    rdfs:subClassOf apods:SortOrder .
+
+apods:Closed a owl:Class,
+        apods:EventStatus ;
+    rdfs:label "Closed" ;
+    rdfs:subClassOf apods:EventStatus .
+
+apods:Coming a owl:Class,
+        apods:EventStatus ;
+    rdfs:label "Coming" ;
+    rdfs:subClassOf apods:EventStatus .
+
+apods:CreateCollection a owl:Class,
+        apods:AccessNeed ;
+    rdfs:label "CreateCollection" ;
+    rdfs:subClassOf apods:AccessNeed .
+
+apods:CreateWacGroup a owl:Class,
+        apods:AccessNeed ;
+    rdfs:label "CreateWacGroup" ;
+    rdfs:subClassOf apods:AccessNeed .
+
+apods:DescOrder a owl:Class,
+        apods:SortOrder ;
+    rdfs:label "DescOrder" ;
+    rdfs:subClassOf apods:SortOrder .
+
+apods:Finished a owl:Class,
+        apods:EventStatus ;
+    rdfs:label "Finished" ;
+    rdfs:subClassOf apods:EventStatus .
+
+apods:Open a owl:Class,
+        apods:EventStatus ;
+    rdfs:label "Open" ;
+    rdfs:subClassOf apods:EventStatus .
+
+apods:PostOutbox a owl:Class,
+        apods:AccessNeed ;
+    rdfs:label "PostOutbox" ;
+    rdfs:subClassOf apods:AccessNeed .
+
+apods:QuerySparqlEndpoint a owl:Class,
+        apods:AccessNeed ;
+    rdfs:label "QuerySparqlEndpoint" ;
+    rdfs:subClassOf apods:AccessNeed .
+
+apods:ReadInbox a owl:Class,
+        apods:AccessNeed ;
+    rdfs:label "ReadInbox" ;
+    rdfs:subClassOf apods:AccessNeed .
+
+apods:ReadOutbox a owl:Class,
+        apods:AccessNeed ;
+    rdfs:label "ReadOutbox" ;
+    rdfs:subClassOf apods:AccessNeed .
+
+apods:UpdateWebId a owl:Class,
+        apods:AccessNeed ;
+    rdfs:label "UpdateWebId" ;
+    rdfs:subClassOf apods:AccessNeed .
+
+apods:acceptedAccessNeeds a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "acceptedAccessNeeds" ;
+    dcterms:title "Accepted Access Needs" ;
+    rdfs:range apods:AccessNeed ;
+    skos:definition "The access needs accepted in an app registration." ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:acceptedSpecialRights a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "acceptedSpecialRights" ;
+    dcterms:title "Accepted Special Access Needs" ;
+    rdfs:range apods:AccessNeed ;
+    skos:definition "The special access needs accepted in an app registration." ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:locales a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "locales" ;
+    dcterms:title "Locales" ;
+    rdfs:range linkml:String ;
+    skos:definition "A set of supported locale language tags of a Pod Provider." ;
+    skos:inScheme <http://activitypods.org/ns/core#> ;
+    skos:note "As of ActivityPods version 2, only language tags are supported and no regional codes, as for example defined in BCP 47." .
+
+apods:area a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "area" ;
+    dcterms:title "Location description" ;
+    rdfs:range linkml:String ;
+    skos:definition "A human-readable location string of a Pod Provider." ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:baseUrl a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "baseUrl" ;
+    dcterms:title "Base URL" ;
+    rdfs:range linkml:Uri ;
+    skos:definition "The base URL of a Pod Provider." ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:describedBy a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "describedBy" ;
+    dcterms:title "App of ClassDescription" ;
+    rdfs:range linkml:Uriorcurie ;
+    skos:definition "The app registering a given ClassDescription." ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:describedClass a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "describedClass" ;
+    dcterms:title "Described Class" ;
+    rdfs:range linkml:Uriorcurie ;
+    skos:definition "The class described by a ClassDescription" ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:icon a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "icon" ;
+    dcterms:title "Type Icon" ;
+    rdfs:range linkml:Uri ;
+    skos:definition "The icon to show for a resource's class." ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:label a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "label" ;
+    rdfs:range linkml:Uriorcurie ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:labelPredicate a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "labelPredicate" ;
+    dcterms:title "Label Predicate of Resource" ;
+    rdfs:range linkml:Uriorcurie ;
+    skos:definition "The predicate used as a human-readable label for resources of a given class" ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:openEndpoint a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "openEndpoint" ;
+    rdfs:range linkml:Uri ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:prefLabel a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "prefLabel" ;
+    rdfs:range linkml:Uriorcurie ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:providedBy a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "providedBy" ;
+    dcterms:title "Pod Provider Name" ;
+    rdfs:range linkml:String ;
+    skos:definition "The instance name of the Pod Provider" ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:SortOrder a owl:Class,
+        linkml:EnumDefinition ;
+    owl:unionOf ( apods:AscOrder apods:DescOrder ) ;
+    linkml:permissible_values apods:AscOrder,
+        apods:DescOrder .
+
+apods:EventStatus a owl:Class,
+        linkml:EnumDefinition ;
+    owl:unionOf ( apods:Open apods:Coming apods:Closed apods:Finished ) ;
+    linkml:permissible_values apods:Closed,
+        apods:Coming,
+        apods:Finished,
+        apods:Open .
+
+apods:AccessNeed a owl:Class,
+        linkml:EnumDefinition ;
+    owl:unionOf ( apods:ReadInbox apods:ReadOutbox apods:PostOutbox apods:CreateWacGroup apods:CreateCollection apods:QuerySparqlEndpoint apods:UpdateWebId ) ;
+    linkml:permissible_values apods:CreateCollection,
+        apods:CreateWacGroup,
+        apods:PostOutbox,
+        apods:QuerySparqlEndpoint,
+        apods:ReadInbox,
+        apods:ReadOutbox,
+        apods:UpdateWebId .
+
+<http://activitypods.org/ns/core#> a owl:Ontology ;
+    rdfs:label "activitypods-ontology" ;
+    dcterms:license "Apache Software License 2.0" ;
+    dcterms:title "ActivityPods Ontology" ;
+    rdfs:seeAlso <https://github.com/activitypods/activitypods-ontology> ;
+    skos:definition "LinkML ontology for ActivityPods" .
