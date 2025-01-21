@@ -1,0 +1,76 @@
+---
+publishDate: 2025-01-21T11:00:00Z
+title: 'Our roadmap for 2025'
+excerpt: "We're delighted to announce that we've received two new grants from the NLnet foundation, which will allow us to consolidate ActivityPods. But not only that: we will also be able to add a number of long-awaited new features. So here's a quick overview of what we'll be working on in 2025."
+image: '~/assets/images/blog/mountain.jpg'
+---
+
+## Groups storages
+
+In the real world, some data is personal and some is collective. For example, it would be absurd to place an organization's projects in the personal data store (Pod) of its director. So, to meet the real needs of several application projects, we want to provide collective data stores in addition to personal data stores.
+
+The Solid protocol currently makes no distinction between the two. Any storage can be used by a group or organisation. But we think they might require a different type of interface, particularly for managing members and roles.
+
+Since December, we have therefore been working on the possibility of creating groups storages. To facilitate data sharing between groups and individuals, we are going to finish implementing the [Solid Application Interoperability (SAI)](https://solid.github.io/data-interoperability-panel/specification/) specification, which allows Pod owners to grant fine-grained access to applications and users. We will also be working closely with its editors to add the notion of membership and roles.
+
+This work will be carried out as part of the [DatamiPods](https://nlnet.nl/project/DatamiPods/) project, which aims to adapt the [Datami](https://datami.multi.coop/) application to a Solid-type architecture.
+
+
+## Solid compatibility
+
+ActivityPods is currently not 100% compatible with the Solid protocol. The reason for this is explained in [this article on the history of SemApps](https://activitypods.org/the-story-of-semapps-and-future-of-activitypods). To sum up: although SemApps is LDP and ActivityPub compatible, the architectural choices we made back in 2019 have made it difficult to adapt to the Solid specification, which is quite demanding.
+
+As part of the grant we received, we will be able to resolve some of biggest obstacles to this compatibility, but also smaller things that we have been waiting for a long time to fix:
+
+* Completing the implementation of **Solid-OIDC**. Work had begun on this with ActivityPods 2.0, but we are not yet using the DPoP tokens that are needed to guarantee optimum security. [#229](https://github.com/activitypods/activitypods/issues/229)
+* Use a **named graph for each RDF document**, so that you can store all the data you want in it. This is the biggest part because it will mean abandoning the Jena Fuseki extension we developed in 2020 to verify WAC permissions. [#1265](https://github.com/assemblee-virtuelle/semapps/issues/1265)
+* Improve our compatibility with the **WAC specification**, in particular by registering WAC permissions in their own resource rather than in a specific named graph. [#1270](https://github.com/assemblee-virtuelle/semapps/issues/1270)
+* Improve **support for the Turtle format**. As we use it very little, the Turtle format does not work well. Content negotiation will now be done in the API layer, to avoid having to deal with multiple formats inside the code. [#1226](https://github.com/assemblee-virtuelle/semapps/issues/1226)
+* Implement **N3-Patch** in addition to Sparql Patch for PATCH requests. This has been Solid's recommended format for several years.
+
+At the same time, we intend to gather a group of people to reflect on the integration of ActivityPub into Solid. Following a [presentation of ActivityPods at the Solid Practitioners Meeting](https://vimeo.com/1037478498) in December, it has become clear that there is a great deal of interest in this from the Solid community, including Tim Berners-Lee who attended the meeting. The [first meeting](https://forum.solidproject.org/t/integrating-activitypub-within-solid-specs/8355/15?u=srosset81) will take place on Tuesday, January 28 at 16:00 UTC. We are looking forward to seeing you there!
+
+We're very excited about the prospect of getting closer to Solid compatibility, so that we can work more closely with this community of great people and organisations.
+
+
+## NextGraph integration
+
+[NextGraph](https://nextgraph.org/) is a local-first P2P solution based on CRDTs. Based on the [Oxigraph](https://github.com/oxigraph/oxigraph) graph database, it stores data in RDF format to optimize data interoperability. The first version was released last autumn, at the same time as ActivityPods 2.0, but we've been in touch with its developer, Niko, for a long time, since he was a key contributor to SemApps.
+
+[In this other blog post](https://activitypods.org/activitypods-and-nextgraph-are-joining-forces), we announced that our long-term goal is to merge the two projects. ActivityPods users will benefit from NextGraph's powerful features while maintaining compatibility with the Solid and ActivityPub standards.
+
+Initially, this integration will involve using NextGraph as ActivityPods' graph database, replacing Jena Fuseki. The immediate benefit will be that all data will be encrypted, a feature that users have long been asking for. ActivityPods could therefore be the first software to provide encrypted Pods.
+
+In addition, we will be able to give advanced users the option of creating their own [NextGraph wallet](https://docs.nextgraph.org/en/wallet/). This will enable them to connect to their Pod with NextGraph applications, and retrieve all their data.
+
+Once this first step has been completed, we'll think about how we can take advantage of NextGraph's other features.
+
+
+## Frontend framework
+
+Since 2019, as part of the [SemApps](https://semapps.org/docs/frontend) project, we have provided a library of React components to facilitate the development of frontend applications. We rely on the very popular and well-maintained [React-Admin](https://marmelab.com/react-admin/) framework, which makes it easy to query data and display it. Managing forms is especially easy.
+
+Since we'll need to update these components to be compatible with Solid-OIDC, and since it will then be possible to use them with any Solid server, we'd like to take the opportunity to make this library independent of SemApps. We believe that this will increase interest in these components and thus improve their resilience.
+
+We also want to improve DevX by making React-Admin return [Linked Data Objects](https://ldo.js.org/) (LDO) instead of simple JavaScript objects ([#1191](https://github.com/assemblee-virtuelle/semapps/issues/1191)). LDO finally brings type safety to RDF data in the JavaScript world. LDO will also be used in the backend, where relevant ([#231](https://github.com/assemblee-virtuelle/activitypods/issues/231))
+
+
+## Some little extras
+
+A few other improvements worth mentioning:
+
+* The possibility of having applications that are frontend-only [#359](https://github.com/activitypods/activitypods/issues/359) (already possible in theory with ActivityPods 2.0.5)
+* The use of capabilities based on the Verifiable Credentials (VC) standard
+* The ability to import data from another ActivityPods provider ([#232](https://github.com/assemblee-virtuelle/activitypods/issues/232)), and therefore to migrate accounts, in particular with a mechanism similar to Mastodon's ([#105](https://github.com/assemblee-virtuelle/activitypods/issues/105))
+* Pagination ([#176](https://github.com/assemblee-virtuelle/semapps/issues/176)) and filtering ([#1251](https://github.com/assemblee-virtuelle/semapps/issues/1251)) of LDP containers.
+
+
+## Conclusion
+
+The road ahead looks bright, but there's a lot of work to do! Fortunately, three of us will work on these new features. In addition to Sébastien Rosset (the creator of ActivityPods) and [Laurin Weger](https://github.com/Laurin-W) (who has been working on the project since the summer of 2023), we will be bringing [Sylvain Roquebert](https://www.linkedin.com/in/sylvain-roquebert-81810313/) on board.
+
+Of course, this is an open source project, so we also welcome any other energy that would like to get involved! The easiest way is to join our [Matrix space](https://matrix.to/#/#activitypods:matrix.org) or attend our [open meetings](https://github.com/activitypods/activitypods/discussions/167) every other Thursday at 16:00 UTC. 
+
+We would like to thank [NLnet](https://nlnet.nl/) for their continued support. Without their funding, it wouldn't be possible to keep such an ambitious project going. A big thank you also to Niko, creator of NextGraph, for his support and the titanic efforts he has been making since last autumn to generate synergy between various projects. Finally, we'd like to thank the [Solid](https://forum.solidproject.org/) and [ActivityPub](https://socialhub.activitypub.rocks/) communities, who have continued to give us their kind support over the years.
+
+Together, we'll make it happen!
