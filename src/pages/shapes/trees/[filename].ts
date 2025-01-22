@@ -1,6 +1,5 @@
 import type { APIRoute } from 'astro';
 import fs from 'node:fs/promises';
-import path from 'node:path';
 import ttl2jsonld from '@frogcat/ttl2jsonld';
 import jsonld from 'jsonld';
 import localContext from '../../../config/localContext';
@@ -8,17 +7,17 @@ import localContext from '../../../config/localContext';
 export const prerender = false;
 
 export const GET: APIRoute = async ({ request, params }) => {
-  const turtleData = await fs.readFile(
-    path.resolve(
-      import.meta.dirname,
+  const filePath = import.meta
+    .resolve(
       import.meta.env.DEV
         ? `../../../../public/shapes/trees/${params.filename}.ttl`
         : `../../../../client/shapes/trees/${params.filename}.ttl`
-    ),
-    {
-      encoding: 'utf-8'
-    }
-  );
+    )
+    ?.replace('file://', '');
+
+  const turtleData = await fs.readFile(filePath, {
+    encoding: 'utf-8'
+  });
 
   switch (request.headers.get('Accept')) {
     case 'application/ld+json': {
