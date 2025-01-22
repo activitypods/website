@@ -6,7 +6,12 @@ export const prerender = false;
 
 export const GET: APIRoute = async ({ params }) => {
   const turtleData = await fs.readFile(
-    path.resolve(import.meta.dirname, `../../../content/shape/${params.filename}.shex`),
+    path.resolve(
+      import.meta.dirname,
+      import.meta.env.DEV
+        ? `../../../../public/shapes/shex/${params.filename}.shex`
+        : `../../../../client/shapes/shex/${params.filename}.shex`
+    ),
     {
       encoding: 'utf-8'
     }

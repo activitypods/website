@@ -9,7 +9,12 @@ export const prerender = false;
 
 export const GET: APIRoute = async ({ request, params }) => {
   const turtleData = await fs.readFile(
-    path.resolve(import.meta.dirname, `../../../content/shapetree/${params.filename}.ttl`),
+    path.resolve(
+      import.meta.dirname,
+      import.meta.env.DEV
+        ? `../../../../public/shapes/trees/${params.filename}.ttl`
+        : `../../../../client/shapes/trees/${params.filename}.ttl`
+    ),
     {
       encoding: 'utf-8'
     }
