@@ -899,6 +899,11 @@
   resolved "https://registry.yarnpkg.com/@fontsource/pt-sans/-/pt-sans-4.5.11.tgz#feee7bf8af118b4e6532533eb1fe6190c41802a7"
   integrity sha512-w0Z11/B8PYcgM67fTSgZ9poFNJ8AdnglKlcH0aMdU7bBNfiHuKvZOxwUsynWpgghToh3GS4H2TizNnmi1wSEYg==
 
+"@frogcat/ttl2jsonld@^0.0.10":
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/@frogcat/ttl2jsonld/-/ttl2jsonld-0.0.10.tgz#f1081632df60011cc1f4e60504722d8e8511750b"
+  integrity sha512-0NLM96V3ziZkkOlhixSZiXe8CzewECVNtSj04s2hW2e65SgzQPzM12VWSovuRIy+2UJA2Bjkf9405yrty9tgcg==
+
 "@giscus/react@^2.4.0":
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/@giscus/react/-/react-2.4.0.tgz#43fa5fbdcca9d44f532e6c61c46878da3476909c"
@@ -4161,10 +4166,10 @@ jsonfile@^6.0.1:
   optionalDependencies:
     graceful-fs "^4.1.6"
 
-jsonld@^8.3.2:
-  version "8.3.2"
-  resolved "https://registry.yarnpkg.com/jsonld/-/jsonld-8.3.2.tgz#7033f8994aed346b536e9046025f7f1fe9669934"
-  integrity sha512-MwBbq95szLwt8eVQ1Bcfwmgju/Y5P2GdtlHE2ncyfuYjIdEhluUVyj1eudacf1mOkWIoS9GpDBTECqhmq7EOaA==
+jsonld@^8.3.3:
+  version "8.3.3"
+  resolved "https://registry.yarnpkg.com/jsonld/-/jsonld-8.3.3.tgz#08cc927833c8684e42319d4697cc8199c0908ffc"
+  integrity sha512-9YcilrF+dLfg9NTEof/mJLMtbdX1RJ8dbWtJgE00cMOIohb1lIyJl710vFiTaiHTl6ZYODJuBd32xFvUhmv3kg==
   dependencies:
     "@digitalbazaar/http-client" "^3.4.1"
     canonicalize "^1.0.1"

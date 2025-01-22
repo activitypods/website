@@ -1,0 +1,9 @@
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX as: <https://www.w3.org/ns/activitystreams#>
+PREFIX apshex: <https://activitypods.org/shapes/shex/>
+
+apshex:Event {
+  a [ as:Event ] ;
+  as:name xsd:string
+}

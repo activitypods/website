@@ -1,0 +1,12 @@
+PREFIX st: <http://www.w3.org/ns/shapetrees#>
+PREFIX apshex: <https://activitypods.org/shapes/shex/>
+PREFIX aptrees: <https://activitypods.org/shapes/trees/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX as: <https://www.w3.org/ns/activitystreams#>
+
+aptrees:Event
+  a st:ShapeTree ;
+  st:expectsType st:Resource ;
+  st:shape apshex:Event ;
+  st:describesInstance as:name ;
+  skos:prefLabel "Events"@en, "Evénements"@fr .
