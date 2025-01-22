@@ -16,8 +16,7 @@ export const GET: APIRoute = async ({ request, params }) => {
   );
 
   switch (request.headers.get('Accept')) {
-    case 'application/ld+json':
-    default: {
+    case 'application/ld+json': {
       const jsonldData = ttl2jsonld.parse(turtleData);
 
       const compactedData = await jsonld.compact(jsonldData, localContext);
@@ -30,7 +29,8 @@ export const GET: APIRoute = async ({ request, params }) => {
       });
     }
 
-    case 'text/turtle': {
+    case 'text/turtle':
+    default: {
       return new Response(turtleData, {
         headers: new Headers({
           'Content-Type': 'text/turtle; charset=utf-8',
