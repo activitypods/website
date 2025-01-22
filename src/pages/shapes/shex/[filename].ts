@@ -5,6 +5,8 @@ import path from 'node:path';
 export const prerender = false;
 
 export const GET: APIRoute = async ({ params }) => {
+  console.log('import.meta', import.meta);
+
   const turtleData = await fs.readFile(
     path.resolve(
       import.meta.dirname,
