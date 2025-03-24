@@ -1,3 +1,4 @@
+@prefix acl: <http://www.w3.org/ns/auth/acl#> .
 @prefix apods: <https://activitypods.org/ns/core#> .
 @prefix as: <https://www.w3.org/ns/activitystreams#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
@@ -13,58 +14,58 @@ apods:ClassDescription a owl:Class,
     rdfs:label "ClassDescription" ;
     dcterms:title "Class Description" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Uriorcurie ;
-            owl:onProperty apods:prefLabel ],
+            owl:minCardinality 0 ;
+            owl:onProperty apods:openEndpoint ],
         [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:maxCardinality 1 ;
             owl:onProperty apods:describedBy ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:Uriorcurie ;
-            owl:onProperty apods:describedClass ],
+            owl:onProperty apods:prefLabel ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty apods:prefLabel ],
+            owl:onProperty apods:icon ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty apods:openEndpoint ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty apods:labelPredicate ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:Uri ;
             owl:onProperty apods:openEndpoint ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty apods:openEndpoint ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 0 ;
             owl:onProperty apods:describedClass ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty apods:icon ],
+            owl:minCardinality 0 ;
+            owl:onProperty apods:describedBy ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty apods:labelPredicate ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty apods:describedClass ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty apods:prefLabel ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:allValuesFrom linkml:Uriorcurie ;
             owl:onProperty apods:describedBy ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty apods:describedClass ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:Uri ;
             owl:onProperty apods:icon ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty apods:openEndpoint ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty apods:labelPredicate ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:Uriorcurie ;
             owl:onProperty apods:labelPredicate ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty apods:labelPredicate ],
+            owl:onProperty apods:prefLabel ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty apods:describedClass ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty apods:describedBy ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:maxCardinality 1 ;
             owl:onProperty apods:icon ] ;
     skos:definition "Description of an RDFS class used in Type Registration" ;
     skos:inScheme <http://activitypods.org/ns/core#> .
@@ -81,12 +82,12 @@ apods:Install a owl:Class,
     dcterms:title "Install Activity" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty apods:acceptedSpecialRights ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom apods:AccessNeed ;
             owl:onProperty apods:acceptedAccessNeeds ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
+            owl:onProperty apods:acceptedSpecialRights ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom apods:AccessNeed ;
             owl:onProperty apods:acceptedAccessNeeds ],
         [ a owl:Restriction ;
             owl:allValuesFrom apods:AccessNeed ;
@@ -114,8 +115,11 @@ apods:PodProvider a owl:Class,
     rdfs:label "PodProvider" ;
     dcterms:title "Pod Provider Description" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Uri ;
-            owl:onProperty apods:baseUrl ],
+            owl:maxCardinality 1 ;
+            owl:onProperty apods:providedBy ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty apods:locales ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
             owl:onProperty apods:area ],
@@ -123,29 +127,26 @@ apods:PodProvider a owl:Class,
             owl:minCardinality 0 ;
             owl:onProperty apods:area ],
         [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
+            owl:minCardinality 0 ;
+            owl:onProperty apods:providedBy ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
             owl:onProperty apods:locales ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty apods:providedBy ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uri ;
+            owl:onProperty apods:baseUrl ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty apods:area ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty apods:baseUrl ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty apods:providedBy ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty apods:baseUrl ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty apods:area ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty apods:locales ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty apods:providedBy ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty apods:providedBy ] ;
+            owl:onProperty apods:baseUrl ] ;
     skos:definition "General information about a pod provider" ;
     skos:inScheme <http://activitypods.org/ns/core#> .
 
@@ -232,6 +233,22 @@ apods:dereferenceItems a owl:ObjectProperty,
     rdfs:label "dereferenceItems" ;
     rdfs:range linkml:Boolean ;
     rdfs:seeAlso <https://docs.activitypods.org/architecture/resources-management/#create-custom-collection> ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:hasActivityGrant a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "hasActivityGrant" ;
+    dcterms:title "Activity Grant" ;
+    rdfs:range apods:ActivityGrant ;
+    skos:definition "Grant to perform an action on an outbox" ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:hasAuthorization a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "hasAuthorization" ;
+    dcterms:title "Authorization" ;
+    rdfs:range apods:Authorization ;
+    skos:definition "An authorization to read, write, or control one or more resources" ;
     skos:inScheme <http://activitypods.org/ns/core#> .
 
 apods:hasClassDescription a owl:ObjectProperty,
@@ -327,6 +344,17 @@ apods:sortOrder a owl:ObjectProperty,
     rdfs:range apods:SortOrder ;
     rdfs:seeAlso <https://docs.activitypods.org/architecture/resources-management/#create-custom-collection> ;
     skos:definition "The sort order of a collection" ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:ActivityGrant a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "ActivityGrant" ;
+    skos:inScheme <http://activitypods.org/ns/core#> .
+
+apods:Authorization a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Authorization" ;
+    skos:exactMatch acl:Authorization ;
     skos:inScheme <http://activitypods.org/ns/core#> .
 
 apods:EventFormat a owl:Class,
@@ -544,3 +572,4 @@ apods:AccessNeed a owl:Class,
     dcterms:title "ActivityPods Ontology" ;
     rdfs:seeAlso <https://github.com/activitypods/activitypods-ontology> ;
     skos:definition "LinkML ontology for ActivityPods" .
+

@@ -1,4 +1,3 @@
-
 {
   "name": "activitypods-ontology",
   "description": "LinkML ontology for ActivityPods",
@@ -12,6 +11,10 @@
   ],
   "license": "Apache Software License 2.0",
   "prefixes": [
+    {
+      "prefix_prefix": "acl",
+      "prefix_reference": "http://www.w3.org/ns/auth/acl#"
+    },
     {
       "prefix_prefix": "apods",
       "prefix_reference": "https://activitypods.org/ns/core#"
@@ -843,6 +846,28 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "hasActivityGrant",
+      "definition_uri": "https://activitypods.org/ns/core#hasActivityGrant",
+      "description": "Grant to perform an action on an outbox",
+      "title": "Activity Grant",
+      "from_schema": "http://activitypods.org/ns/core#",
+      "slot_uri": "https://activitypods.org/ns/core#hasActivityGrant",
+      "range": "ActivityGrant",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "hasAuthorization",
+      "definition_uri": "https://activitypods.org/ns/core#hasAuthorization",
+      "description": "An authorization to read, write, or control one or more resources",
+      "title": "Authorization",
+      "from_schema": "http://activitypods.org/ns/core#",
+      "slot_uri": "https://activitypods.org/ns/core#hasAuthorization",
+      "range": "Authorization",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "preferredForTypes",
       "definition_uri": "https://activitypods.org/ns/core#preferredForTypes",
       "from_schema": "http://activitypods.org/ns/core#",
@@ -1001,13 +1026,35 @@
       "slot_usage": {},
       "class_uri": "https://www.w3.org/ns/activitystreams#OrderedCollection",
       "@type": "ClassDefinition"
+    },
+    {
+      "name": "Authorization",
+      "definition_uri": "https://activitypods.org/ns/core#Authorization",
+      "from_schema": "http://activitypods.org/ns/core#",
+      "mappings": [
+        "acl:Authorization"
+      ],
+      "slot_usage": {},
+      "class_uri": "http://www.w3.org/ns/auth/acl#Authorization",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "ActivityGrant",
+      "definition_uri": "https://activitypods.org/ns/core#ActivityGrant",
+      "from_schema": "http://activitypods.org/ns/core#",
+      "values_from": [
+        "as:Activity"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://activitypods.org/ns/core#ActivityGrant",
+      "@type": "ClassDefinition"
     }
   ],
   "metamodel_version": "1.7.0",
   "source_file": "activitypods-ontology.yaml",
-  "source_file_date": "2024-08-30T17:32:18",
-  "source_file_size": 10520,
-  "generation_date": "2024-08-30T17:32:21",
+  "source_file_date": "2025-03-21T12:36:07",
+  "source_file_size": 10934,
+  "generation_date": "2025-03-21T16:21:35",
   "@type": "SchemaDefinition",
   "@context": [
     "generated/jsonld/activitypods-ontology.context.jsonld",
