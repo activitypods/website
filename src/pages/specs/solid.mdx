@@ -128,7 +128,7 @@ Some Solid predicates are still missing ([#122](https://github.com/assemblee-vir
 
 #### Solid-OIDC <ProgressBar percentage={60} />
 
-⚠️ _Will be available in ActivityPods 2.0_
+⚠️ _Will be available in ActivityPods 3.0_
 
 In v2.0, we partly support authentication through [Solid-OIDC](https://solidproject.org/TR/oidc). This is detailed in [#121](https://github.com/assemblee-virtuelle/activitypods/issues/121).
 
@@ -155,9 +155,9 @@ We support the full [WAC specification](https://solid.github.io/web-access-contr
 
 We do not support yet the [ACP specification](https://solid.github.io/authorization-panel/acp-specification/).
 
-### Application interoperability <ProgressBar percentage={30} />
+### Application interoperability <ProgressBar percentage={80} />
 
-⚠️ _Will be available in ActivityPods 2.0_
+_Available since ActivityPods 2.0_
 
 [Solid Application Interoperability](https://solid.github.io/data-interoperability-panel/specification) is a complex specification which is not yet complete.
 We've implemented everything we can at the moment and are waiting to see how it evolves before implementing the remaining parts.
@@ -234,9 +234,9 @@ Since [we implement the full ActivityPub protocol](activitypub), we haven't need
 
 ### Solid Notifications <ProgressBar percentage={100} />
 
-⚠️ _Will be available in ActivityPods 2.0_
+_Available since ActivityPods 2.0_
 
-Thanks to the [Solid Notifications Protocol](https://solid.github.io/notifications/protocol, you can listen to LDP resources, LDP containers or ActivityStreams collections.
+Thanks to the [Solid Notifications Protocol](https://solid.github.io/notifications/protocol), you can listen to LDP resources, LDP containers or ActivityStreams collections.
 
 We support discovering the notification subscription services through the storage description resource. This can be found by doing a HEAD request on any resource in your pod and looking for the `Link` header with the `http://www.w3.org/ns/solid/terms#storageDescription` relationship.
 
