@@ -1,0 +1,48 @@
+---
+publishDate: 2025-02-15T11:00:00Z
+title: 'ActivityPods at FOSDEM 2025'
+excerpt: "This year, at the famous FOSDEM gathering in Brussels (Belgium), we were invited by the SocialWeb devroom to give a presentation on ActivityPods. It was an opportunity to highlight the “universal social network” that would be possible with ActivityPods, and how it differs from the Bluesky project."
+image: '~/assets/images/blog/fosdem2025-talk.png'
+---
+
+import ImageCaption from '~/components/ImageCaption.astro';
+import solidProject from '~/assets/images/blog/solid-project.png';
+import blueskyComparison from '~/assets/images/blog/bluesky-comparison.png';
+
+Here's a re-recording of the presentation:
+
+<iframe class="video" sandbox="allow-same-origin allow-scripts allow-popups" src="https://peertube.virtual-assembly.org/videos/embed/a8dc6bcc-8cef-485e-bfd8-438f1bfc04d2" frameborder="0" allowfullscreen></iframe>
+
+Alternatively, you'll find below a summary of the main points shared during the presentation.
+
+## Is the Fediverse decentralized?
+
+When new users arrive on Mastodon, they may have the impression of having joined a decentralized social network. But in reality, this decentralization is only partial: if they want to publish videos, they'll need a PeerTube account, if they want to publish images, they'll need a PixedFed account, and so on. Each use therefore requires a separate account, while more and more users are experiencing what is known as "account fatigue".
+
+One solution could come from the [Solid protocol](https://solidproject.org), promoted in the past 15 years by the inventor of the Web, Tim Berners-Lee, and based on a simple principle: instead of having our data scattered across hundreds or even thousands of applications and servers, users choose a trusted host to create their “personal online dataspace” (Pod). They can then grant compatible applications the right to read and write data to their Pod.
+
+<ImageCaption src={solidProject} label="The Solid project in a glance" />
+
+By combining ActivityPub with the Solid protocol, ActivityPods enables users to have a single ActivityPub account while using a multitude of applications. The combination of the two can enable the emergence of what we call a “universal social network”, which is not tied to any particular application, but to which any application can connect.
+
+## The false BlueSky solution
+
+It's worth noting that Bluesky has a similar architecture, except that Pods are named “PDS” (Personal Data Stores) and data is stored using a data format called “Lexicon” rather than Linked Data. But in the end, BlueSky makes it possible to have several applications with a single account: new BlueSky applications are currently under development.
+
+<ImageCaption src={blueskyComparison} label="Comparison between Bluesky and Solid architectures" />
+
+Christine Lemmer-Weber has [clearly shown](https://dustycloud.org/blog/how-decentralized-is-bluesky/) how Bluesky's architecture is not really decentralized. But for us, the main problem is this: as all data must be aggregated by servers (“relays”), which are then used by applications, this doesn't allow for private data. With Bluesky, even the blocklist is public!
+
+For our part, we intend to [join forces with NextGraph in ActivityPods 3.0](/activitypods-and-nextgraph-are-joining-forces). NextGraph also works with intermediary servers (called “brokers”), except that all data is encrypted. This would add a layer of security that Fediverse doesn't currently have.
+
+## Benefits for developers
+
+Finally, what are the advantages for ActivityPub developers of using the ActivityPods solution?
+
+1. You won't need to recreate a community for each of your applications. If users already have an ActivityPods account, they'll be able to connect to your application, and find their contacts or followers without difficulty.
+
+2. If data has been written by other applications, you can easily reuse it. All you need to do is ask the user for authorization. This can be used to create small applications that complement other applications.
+
+3. Since many features are supported by the Pod provider, you can focus on the core features of your application, without having to reinvent the wheel every time. We even offer a [framework](https://docs.activitypods.org/app-framework/backend/introduction/) if you want to go faster.
+
+So don't hesitate to try out our guide to [creating your first social application](https://docs.activitypods.org/guides/create-your-first-social-app/). In less than 5 minutes, you should have a small, local ActivityPub-compatible application!
