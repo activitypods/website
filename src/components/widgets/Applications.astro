@@ -28,7 +28,7 @@ import trustedApps from "~/config/trusted-apps";
     <div class="grid gap-6 row-gap-5 md:grid-cols-2 lg:grid-cols-3">
       {
         trustedApps
-          .filter((app) => app["apods:locales"] === "en")
+          .filter((app) => ["en", "fr"].includes(app["apods:locales"]))
           .map((app) => (
             <article class="mx-4 sm:mx-0">
               <div class="relative h-0 pb-[56.25%]  overflow-hidden bg-gray-400 dark:bg-slate-700 rounded shadow-lg mb-4">
@@ -51,6 +51,9 @@ import trustedApps from "~/config/trusted-apps";
                   >
                     {app["apods:name"]}
                   </a>
+                  {app["apods:locales"] === "fr" && (
+                    <span class="text-sm font-normal text-gray-500 dark:text-gray-400"> (in French)</span>
+                  )}
                   <a
                     href={app["apods:sourceCode"]}
                     target="_blank"

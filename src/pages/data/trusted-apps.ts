@@ -13,7 +13,9 @@ const trustedAppsUris = [
   'https://mutual-aid.app/api/app',
   'https://mastopod.com/api/app',
   'https://bienvenuechezmoi.org/api/app',
-  'https://lentraide.app/api/app'
+  'https://lentraide.app/api/app',
+  'https://portejunes.com/api/app',
+  'https://la-carte-des-savoirs.com/api/app'
 ];
 
 export const GET: APIRoute = async ({ request }) => {
